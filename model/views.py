@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from .models import PatientDetails
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 import json
 import requests
 
@@ -59,4 +61,45 @@ def details_view(request):
         # Return a JSON response with the processed data
         return JsonResponse(response_data)
 
-    return render(request, 'symptomsform.html')
+    return render(request, 'Templates/remedic/symptomsform.html')
+
+
+
+batch_feedback_data = []
+
+def feedback_view(request):
+    global batch_feedback_data
+
+    if request.method == 'POST':
+        try:
+            # Retrieve the feedback data from the request
+            feedback_data = json.loads(request.body.decode('utf-8'))
+
+            # Extract relevant information from the feedback_data
+            edited_data = feedback_data.get('edited_data', {})
+
+            # Append the edited_data to the batch_feedback_data
+            batch_feedback_data.append(edited_data)
+
+            # Check if the batch size is reached
+            batch_size = 500
+            if len(batch_feedback_data) >= batch_size:
+                # Send the batch to the model endpoint
+                model_endpoint = 'https://your-model-endpoint'
+                response = requests.post(model_endpoint, json=batch_feedback_data)
+
+                # Clear the batch_feedback_data after sending
+                batch_feedback_data = []
+
+                # Assuming the model update is successful, you can return a success response
+                return JsonResponse({'status': 'success'})
+            
+            # Return a success response indicating that the feedback is recorded
+            return JsonResponse({'status': 'success'})
+
+        except Exception as e:
+            # Handle exceptions or errors during the feedback processing
+            return JsonResponse({'status': 'error', 'message': str(e)})
+
+    # Handle other HTTP methods if needed
+    return JsonResponse({'status': 'error', 'message': 'Invalid request method'})

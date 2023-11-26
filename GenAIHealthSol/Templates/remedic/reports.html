@@ -1,0 +1,50 @@
+<!-- user_app/templates/user_app/reports.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reports</title>
+</head>
+<body>
+
+<h1>User Reports</h1>
+
+{% if feedback_data %}
+    <table>
+        <thead>
+            <tr>
+                <th>Patient Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Past Medical History</th>
+                <th>Symptom Days</th>
+                <th>Symptoms</th>
+                <th>Output Field 1</th>
+                <th>Output Field 2</th>
+                <th>Feedback Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedback_data %}
+                <tr>
+                    <td>{{ feedback.patient_name }}</td>
+                    <td>{{ feedback.age }}</td>
+                    <td>{{ feedback.sex }}</td>
+                    <td>{{ feedback.past_medical_history }}</td>
+                    <td>{{ feedback.symptom_days }}</td>
+                    <td>{{ feedback.symptoms }}</td>
+                    <td>{{ feedback.output_field_1 }}</td>
+                    <td>{{ feedback.output_field_2 }}</td>
+                    <td>{{ feedback.feedback_text }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No feedback data available.</p>
+{% endif %}
+
+</body>
+</html>
