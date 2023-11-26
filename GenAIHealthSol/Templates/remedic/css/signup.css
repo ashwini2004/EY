@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+:root {
+  --brand-color-1: #262936;
+  --brand-color-2: #292C3A;
+  --brand-color-3: #3f5bd8;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  height: 100vh;
+  background-color: var(--brand-color-1);
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-content {
+  padding: 50px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 200px;
+  background-color: var(--brand-color-2);
+  border-radius: 10px;
+}
+
+.main-content h3 {
+  text-align: center;
+  color: #fff;
+  margin-top: 0;
+  font-size: 2.5em;
+}
+
+.main-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content form .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.main-content form .input-group label {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 0.99em;
+  color: #777;
+  font-weight: bold;
+}
+
+.main-content form .input-group input {
+  padding: 15px;
+  font-size: 1em;
+  border-radius: 50px;
+  border: unset;
+  background-color: #303443;
+  color: #eee;
+  transition: background 0.5s;
+}
+
+.main-content form .input-group input:focus {
+  outline: none;
+  background-color: var(--brand-color-3);
+}
+
+.main-content form .input-group input::placeholder {
+  color: #eee;
+}
+
+.main-content form .input-group button {
+  width: 150px;
+  align-self: center;
+  padding: 15px;
+  border-radius: 50px;
+  border: unset;
+  background-color: var(--brand-color-3);
+  color: #fff;
+  font-size: 1.1em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.main-content form .input-group button:hover {
+  background-color: #5772e9;
+}
+
+.main-content form .input-group button:focus {
+  outline: none;
+}
+
+.main-content p {
+  color: #fff;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.main-content .social ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  list-style: none;
+}
+
+.main-content .social ul a {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  background-color: var(--brand-color-1);
+  padding: 15px;
+  border-radius: 50px;
+  width: 150px;
+  text-align: center;
+  margin-left: 15px;
+  transition: background 0.5s;
+}
+
+.main-content .social ul a:hover {
+  background-color: #fff;
+}
+
+.main-content .social ul a span {
+  margin-left: 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+}

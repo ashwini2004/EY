@@ -1,12 +1,40 @@
-<!-- templates/signup.html -->
-
-{% extends 'base.html' %}
-
-{% block content %}
-  <h2>Sign Up</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-  </form>
-{% endblock %}
+<section class="wrapper">
+  <div class="main-content">
+    <h3>Join Us</h3>
+    <form method="post" action="{% url 'signup' %}">
+      {% csrf_token %}
+      <div class="input-group">
+        <label for="fullname">Fullname</label>
+        <input type="text" name="fullname" placeholder="Fullname" id="fullname" autocomplete="off" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" id="email" autocomplete="off" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Password" id="password" required>
+      </div>
+      <div class="input-group">
+        <button type="submit">Sign up</button>
+      </div>
+    </form>
+    <p>OR</p>
+    <div class="social">
+      <ul class="list">
+        <li>
+          <a href="">
+            <img src="https://cdn.svgporn.com/logos/github-icon.svg" alt="Github" width="20">
+            <span>Github</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" width="20">
+            <span>Google</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
