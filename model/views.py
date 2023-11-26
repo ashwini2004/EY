@@ -40,7 +40,7 @@ def details_view(request):
 
         # Send data to the trained model (replace 'model_endpoint' with the actual endpoint)
         model_endpoint = 'https://your-trained-model-endpoint'
-        response = requests.post(model_endpoint, json=model_input_data)
+        response = requests.post(model_endpoint, json=model_input_data.symptoms)
 
         # Process the response from the model as needed
         model_output_data = response.json()
