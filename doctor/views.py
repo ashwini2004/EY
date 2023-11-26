@@ -19,7 +19,7 @@ def doctor_view(request):
 
 
 @csrf_exempt  # Using csrf_exempt for simplicity, consider CSRF protection in a production environment
-def feedback_view(request):
+def doctorfeedback_view(request):
     if request.method == 'POST':
         try:
             feedback_data = json.loads(request.body)

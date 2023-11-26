@@ -8,6 +8,7 @@ import requests
 
 def details_view(request):
     if request.method == 'POST':
+        print("hello")
         # Retrieve form data
         name = request.POST.get('name')
         age = int(request.POST.get('age'))
@@ -61,7 +62,7 @@ def details_view(request):
         # Return a JSON response with the processed data
         return JsonResponse(response_data)
 
-    return render(request, 'Templates/remedic/symptomsform.html')
+    return render(request, 'symptomsform.html')
 
 
 

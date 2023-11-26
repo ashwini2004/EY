@@ -3,7 +3,7 @@ from doctor.models import DoctorFeedback
 
 
 def index(request):
-    return render(request, 'GenAIHealthSol\Templates\remedic\index.html')
+    return render(request, 'index.html')
 
 def generate_reports(request):
     # Retrieve doctor feedback data from the database

@@ -17,12 +17,11 @@ Including another URLconf
 # app/urls.py
 
 from django.urls import path, include
-from . import views
 
 urlpatterns = [
     path('', include('user.urls')),
     path('authsystem/', include('authsystem.urls')),
     path('doctor/', include('doctor.urls')),
-    path('model/', include('model.urls')),
+    path('model/', include(('model.urls','model'), namespace='model')),
     # ... other paths ...
 ]

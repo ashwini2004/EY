@@ -1,8 +1,8 @@
 from django.urls import path
-from . import views
+from .views import index, generate_reports
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('reports/', views.generate_reports, name='generate_reports'),
+    path('', index, name='index'),
+    path('reports/', generate_reports, name='generate_reports'),
     # Add more URL patterns as needed
 ]
